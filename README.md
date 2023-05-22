@@ -1,6 +1,27 @@
 # Pair-wise UN Causes of death Country Significance test with Welch's t-test
-The project was a small course work for my inferential statistics paper.
 
+### Proposed Sample Changes
+To ```change the countries to be compared for causes of death```, the following things must be changed within the notebook:
+
+**Get subset of the main UN causes of death dataset** (Change the country name to your country)
+df_india = getSubset(df,"India").sort_index(ascending=True) 
+df_usa = getSubset(df, "United States").sort_index(ascending=True)
+
+**Rertrieve the population in arrays** (Change the country name to your country)
+india_population_arr = list(df_population[df_population["Country"]=="India"]["Population"]) 
+usa_population_arr = list(df_population[df_population["Country"]=="USA"]["Population"])
+
+**Normalise the population to 1000,000 scale** (Change the country name to your country)
+normalizeDf(df_india,india_population_arr)
+normalizeDf(df_usa,usa_population_arr)
+
+**Perform t-tes** (Change the country name to your country)
+usa_india_t_test = t_test(df_india,df_usa)
+
+**Visualise the findings** (Change the country name to your country)
+finalResult(df_usa,df_india,usa_india_t_test,"USA","INDIA",0.05,show_only_nnullAcceptance = False)
+
+# Project Related Information
 ## Introduction
 This repository presents a case study on understanding causes of death using inferential statistics and data visualizations. The project aims to analyze the causes of death in five selected countries, namely the United States of America, India, China, United Kingdom, and Somalia. By applying Welch's t-test and visualizing the data, the project explores the variations in mortality rates among these countries. By changing the country parameters, all UN countries can be compared for significance of causes of deaths (per 100,000 of the population).
 
@@ -33,4 +54,16 @@ In addition to statistical analysis, data visualizations play a crucial role in 
 ## Comparative Analysis
 The comparative analysis focuses on exploring the causes of death in the selected countries. The analysis is presented in a booklet format, arranged country-wise, with individual tests and their corresponding inferences. The project's source code is provided as a snippet at the end of the report.
 
-The analysis primarily involves the application of Welch's t-test to compare the average deaths caused by different variables in each country. The statistical significance of the differences is evaluated based on the p-value obtained from the t-test. Additionally, data visualizations, including line plots and bar charts, are employed to illustrate the trends and variations in deaths among the countries
+The analysis primarily involves the application of Welch's t-test to compare the average deaths caused by different variables in each country. The statistical significance of the differences is evaluated based on the p-value obtained from the t-test. Additionally, data visualizations, including line plots and bar charts, are employed to illustrate the trends and variations in deaths among the countries.
+
+# Sample Screenshots of findings/visualisations
+
+#### Comparing HIV Aids related deaths in India vs USA
+
+<img width="576" alt="image" src="https://github.com/shreyansh-2003/Understanding-Causes-of-Death-through-Welch-s-t-test-and-Visualisations/assets/105413094/480cc695-d3d3-40ae-83d1-66d85e917df0">
+
+
+
+#### Comparing Meningitis related deaths in India vs USA
+<img width="569" alt="image" src="https://github.com/shreyansh-2003/Understanding-Causes-of-Death-through-Welch-s-t-test-and-Visualisations/assets/105413094/5893732d-fb13-4973-bc89-d36670fd428f">
+
