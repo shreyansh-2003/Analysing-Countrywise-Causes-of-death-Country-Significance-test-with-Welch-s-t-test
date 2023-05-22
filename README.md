@@ -4,19 +4,19 @@
 To ```change the countries to be compared for causes of death```, the following things must be changed within the notebook:
 
 **Get subset of the main UN causes of death dataset** (Change the country name to your country)
-df_india = getSubset(df,"India").sort_index(ascending=True) 
+df_india = getSubset(df,"India").sort_index(ascending=True)<br>
 df_usa = getSubset(df, "United States").sort_index(ascending=True)
 
 **Rertrieve the population in arrays** (Change the country name to your country)
-india_population_arr = list(df_population[df_population["Country"]=="India"]["Population"]) 
+india_population_arr = list(df_population[df_population["Country"]=="India"]["Population"])<br>
 usa_population_arr = list(df_population[df_population["Country"]=="USA"]["Population"])
 
-**Normalise the population to 1000,000 scale** (Change the country name to your country)
-normalizeDf(df_india,india_population_arr)
+**Normalise the population to 1000,000 scale** (Change the country name to your country)<br>
+normalizeDf(df_india,india_population_arr)<br>
 normalizeDf(df_usa,usa_population_arr)
 
 **Perform t-tes** (Change the country name to your country)
-usa_india_t_test = t_test(df_india,df_usa)
+usa_india_t_test = t_test(df_india,df_usa)<br>
 
 **Visualise the findings** (Change the country name to your country)
 finalResult(df_usa,df_india,usa_india_t_test,"USA","INDIA",0.05,show_only_nnullAcceptance = False)
