@@ -15,7 +15,7 @@ usa_population_arr = list(df_population[df_population["Country"]==**"USA"**]["Po
 normalizeDf(df_india,india_population_arr)<br>
 normalizeDf(df_usa,usa_population_arr)
 
-4. **Perform t-tes** (Change the country name to your country)<br>
+4. **Perform t-test** (Change the country name to your country)<br>
 usa_india_t_test = t_test(df_india,df_usa)<br>
 
 5. **Visualise the findings** (Change the country name to your country)<br>
